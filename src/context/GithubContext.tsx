@@ -7,7 +7,7 @@ import { UserProfile, Repository } from '../types/types';
 // Define types
 interface GithubContextType {
   profile: UserProfile | null;
-  repos: Repository[];
+  repos: Repository[];a
   loading: boolean;
 }
 

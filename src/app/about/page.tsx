@@ -39,12 +39,12 @@ export default function AboutPage() {
             >
               <h2 className="fw-bold mb-3 text-primary">About Me</h2>
               <p className="lead mb-4">
-                Hi, I'm <strong>Mohan Kumar Indala</strong>, a passionate Full Stack Developer
+                Hi, I&apos;m <strong>Mohan Kumar Indala</strong>, a passionate Full Stack Developer
                 skilled in <strong>React, Next.js, Express, and SQL</strong>.
                 I enjoy building sleek web apps that blend great UI with solid backend logic.
               </p>
               <p>
-                I’m currently working at <strong>Awezens</strong> and have built projects like
+                I&apos;m currently working at <strong>Awezens</strong> and have built projects like
                 <a href="https://awezens.ct.ws" target="_blank" rel="noopener noreferrer"> Awezens Website</a>,
                 <a href="https://sainivas.co.in/" target="_blank" rel="noopener noreferrer"> Sainivas Beach View</a>,
                 and <a href="https://trbikes.sainivasbeachviewresthouse.workers.dev/" target="_blank" rel="noopener noreferrer"> TRBike Rentals</a>.

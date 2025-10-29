@@ -27,7 +27,7 @@ export default function AboutSection() {
                 <FaLaptopCode size={90} className="text-light" />
               </div>
             </motion.div>
-          </Col>
+          </Col>a
 
           <Col md={7}>
             <motion.div

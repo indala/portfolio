@@ -2,6 +2,7 @@
 import { Container, Row, Col, Spinner } from 'react-bootstrap';
 import { useGithub } from '@/context/GithubContext';
 import ProjectCard from '@/components/ProjectCard';
+import Image from 'next/image';
 
 export default function ProjectsPage() {
   const { profile, repos, loading } = useGithub();
@@ -14,7 +15,7 @@ export default function ProjectsPage() {
 
       {profile && (
         <div className="text-center mb-5">
-          <img
+          <Image
             src={profile.avatar_url}
             alt={profile.name}
             width={100}

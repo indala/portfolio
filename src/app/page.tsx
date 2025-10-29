@@ -2,7 +2,7 @@ import Hero from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
-import { Container,Row,Col } from 'react-bootstrap';
+import { Container,Row } from 'react-bootstrap';
 
 export default function HomePage() {
   return (
