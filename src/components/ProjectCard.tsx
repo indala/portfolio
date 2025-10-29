@@ -15,7 +15,7 @@ export default function ProjectCard({ title, desc, link }: ProjectCardProps) {
       <Card className="shadow-lg border-0 h-100 bg-dark text-light">
         <Card.Body>
           <Card.Title>{title}</Card.Title>
-          <Card.Text>{desc}</Card.Text>
+          <Card.Text className='text-truncate'>{desc}</Card.Text>
           <Button
             variant="primary"
             href={link}
