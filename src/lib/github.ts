@@ -5,7 +5,7 @@ const GITHUB_USERNAME = 'indala';
 
 // Using a token is recommended to avoid rate limiting on production apps
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const headers = GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {};
+const headers: Record<string, string> = GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {};
 
 export async function getUserProfile(): Promise<UserProfile> {
   try {
