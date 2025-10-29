@@ -11,7 +11,7 @@ export default function HomePage() {
       <AboutSection />
       <ProjectsSection />
       <Container>
-        <Row className="my-5 mx-0 mx-sm-5 px-0 px-md-5">
+        <Row className="my-5 mx-0 mx-sm-5 px-0 px-md-5 ">
       <ContactSection />
         </Row>
       </Container>

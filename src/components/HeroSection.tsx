@@ -5,6 +5,7 @@ import { Button, Container } from 'react-bootstrap';
 import Image from 'next/image';
 import { useGithub } from '@/context/GithubContext';
 
+
 export default function Hero() {
   const { profile } = useGithub();
 

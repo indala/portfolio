@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useGithub } from '@/context/GithubContext';
 import ProjectCard from './ProjectCard';
+import Link from 'next/link';
 
 export default function ProjectsSection() {
   const { repos } = useGithub();
@@ -37,13 +38,13 @@ export default function ProjectsSection() {
         </Row>
 
         <div className="text-center mt-4">
+          <Link href="/projects">
           <Button
             variant="outline-light"
-            href="https://github.com/indala?tab=repositories"
-            target="_blank"
           >
             View All Projects
           </Button>
+          </Link>
         </div>
       </Container>
     </section>

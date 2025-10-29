@@ -27,7 +27,7 @@ export default function AboutSection() {
                 <FaLaptopCode size={90} className="text-light" />
               </div>
             </motion.div>
-          </Col>a
+          </Col>
 
           <Col md={7}>
             <motion.div
@@ -44,7 +44,7 @@ export default function AboutSection() {
               </p>
               <p>
                 I enjoy solving real-world problems, creating efficient solutions, and
-                constantly learning new technologies. Currently, I’m working at Awezens and
+                constantly learning new technologies. Currently, I&apos;m working at Awezens and
                 graduating in April 2025.
               </p>
             </motion.div>
