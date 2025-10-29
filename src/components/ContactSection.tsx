@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -14,7 +14,7 @@ export default function ContactSection() {
 
   const handleWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `👋 Hello Mohan, I'm ${name}.\n📧 Email: ${email}\n💬 Message: ${message}`;
+    const text = `👋 Hello Mohan, I&apos;m ${name}.\n📧 Email: ${email}\n💬 Message: ${message}`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaUserAlt } from 'react-icons/fa'; // 👈 Developer-style icon
+
  import { FaLaptopCode } from 'react-icons/fa';
 
 export default function AboutSection() {
@@ -38,7 +38,7 @@ export default function AboutSection() {
             >
               <h2 className="mb-3">About Me</h2>
               <p className="lead">
-                I'm <strong>Mohan Kumar Indala</strong>, a passionate Full Stack Developer
+                I&apos;m <strong>Mohan Kumar Indala</strong>, a passionate Full Stack Developer
                 with experience in building dynamic, responsive web applications using
                 <strong> React, Next.js, Express, and SQL</strong>.
               </p>

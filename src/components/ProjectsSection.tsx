@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useGithub } from '@/context/GithubContext';
 import ProjectCard from './ProjectCard';

@@ -44,7 +44,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            👋 Hi, I'm <span className="text-primary">Mohan Kumar Indala</span>
+            👋 Hi, I&apos;m <span className="text-primary">Mohan Kumar Indala</span>
           </motion.h1>
 
           <motion.p
