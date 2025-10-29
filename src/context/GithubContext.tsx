@@ -2,11 +2,12 @@
 
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { getUserProfile, getUserRepos } from '@/lib/github';
+import { UserProfile, Repository } from '../types/types';
 
 // Define types
 interface GithubContextType {
-  profile: any | null;
-  repos: any[];
+  profile: UserProfile | null;
+  repos: Repository[];
   loading: boolean;
 }
 
@@ -17,8 +18,8 @@ const GithubContext = createContext<GithubContextType>({
 });
 
 export function GithubProvider({ children }: { children: ReactNode }) {
-  const [profile, setProfile] = useState<any | null>(null);
-  const [repos, setRepos] = useState<any[]>([]);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [repos, setRepos] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export function GithubProvider({ children }: { children: ReactNode }) {
           getUserRepos(),
         ]);
         setProfile(userData);
-        setRepos(repoData.filter((repo: any) => !repo.fork));
+        setRepos(repoData.filter((repo: Repository) => !repo.fork));
       } catch (error) {
         console.error('Error loading GitHub data:', error);
       } finally {
