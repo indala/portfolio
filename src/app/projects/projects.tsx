@@ -1,51 +1,77 @@
 'use client';
-import { Container, Row, Col, Spinner } from 'react-bootstrap';
+
 import { useGithub } from '@/context/GithubContext';
+import { featuredProjects } from '@/lib/projects-data';
 import ProjectCard from '@/components/ProjectCard';
 import Image from 'next/image';
+import { Loader2 } from 'lucide-react';
 
 export default function ProjectsPage() {
-  const { profile, repos, loading } = useGithub();
+  const { profile, loading } = useGithub();
 
-  if (loading) return <Spinner animation="border" className="d-block mx-auto mt-5" />;
+  if (loading) {
+    return (
+      <div className="flex min-h-[50vh] items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   return (
-    <Container className="py-5 text-light">
-      <h2 className="text-center mb-4">GitHub Projects</h2>
+    <main className="min-h-screen py-16 px-6 relative overflow-hidden">
+      {/* Decorative background glow */}
+      <div className="absolute top-1/4 right-0 -z-10 h-80 w-80 rounded-full bg-primary/5 blur-[120px]" />
 
-      {profile && (
-        <div className="text-center mb-5">
-          <Image
-            src={profile.avatar_url}
-            alt={profile.name}
-            width={100}
-            height={100}
-            className="rounded-circle border border-3 border-light mb-3"
-          />
-          <h4>{profile.name}</h4>
-          <p>{profile.bio}</p>
-          <a
-            href={profile.html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-outline-light btn-sm"
-          >
-            View GitHub Profile
-          </a>
+      <div className="mx-auto max-w-5xl">
+        <h2 className="text-3xl font-extrabold text-center tracking-tight sm:text-4xl mb-12">
+          Curated Projects
+        </h2>
+
+        {profile && (
+          <div className="flex flex-col items-center text-center mb-16 space-y-4">
+            <div className="relative h-24 w-24 overflow-hidden rounded-full border border-primary/20 bg-card p-1 shadow-lg">
+              <div className="relative h-full w-full overflow-hidden rounded-full">
+                <Image
+                  src="/profile.png"
+                  alt={profile.name}
+                  fill
+                  sizes="96px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-foreground">{profile.name}</h3>
+              <p className="text-sm text-muted-foreground mt-1 max-w-md mx-auto">
+                Passionate Full Stack Developer specializing in React, Next.js, and SQL, based in Visakhapatnam.
+              </p>
+            </div>
+            <a
+              href={profile.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground hover:bg-accent transition-colors"
+            >
+              View GitHub Profile
+            </a>
+          </div>
+        )}
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <div key={project.id}>
+              <ProjectCard
+                title={project.title}
+                desc={project.description}
+                liveUrl={project.liveUrl}
+                githubUrl={project.githubUrl}
+                techStack={project.techStack}
+                imageUrl={project.imageUrl}
+              />
+            </div>
+          ))}
         </div>
-      )}
-
-      <Row xs={1} md={2} lg={3} className="g-4">
-        {repos.slice(0, 20).map((repo) => (
-          <Col key={repo.id}>
-            <ProjectCard
-              title={repo.name}
-              desc={repo.description || 'No description available.'}
-              link={repo.html_url}
-            />
-          </Col>
-        ))}
-      </Row>
-    </Container>
+      </div>
+    </main>
   );
 }

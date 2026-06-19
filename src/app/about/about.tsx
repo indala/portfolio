@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Container, Row, Col } from 'react-bootstrap';
 import Image from 'next/image';
 import { useGithub } from '@/context/GithubContext';
 import {
@@ -13,226 +12,244 @@ import {
   FaDatabase,
   FaPython,
 } from 'react-icons/fa';
-import { SiNextdotjs, SiSupabase, SiPostgresql, SiFastapi } from 'react-icons/si';
+import { SiNextdotjs, SiSupabase, SiPostgresql, SiTailwindcss } from 'react-icons/si';
 
+interface TimelineItemProps {
+  year: string;
+  title: string;
+  desc: string;
+  side: 'left' | 'right';
+}
 
+function TimelineItem({ year, title, desc, side }: TimelineItemProps) {
+  return (
+    <div className={`relative flex w-full my-6 flex-col md:flex-row md:items-center ${
+      side === 'left' ? 'md:justify-start' : 'md:justify-end'
+    }`}>
+      {/* Node Dot on central line */}
+      <div className="absolute left-4 md:left-1/2 top-4 md:-translate-x-1/2 flex h-5 w-5 items-center justify-center rounded-full bg-primary border-4 border-background shadow-lg" />
+
+      {/* Card Content */}
+      <motion.div
+        initial={{ opacity: 0, x: side === 'left' ? -30 : 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className={`ml-12 md:ml-0 w-[calc(100%-3rem)] md:w-[42%] rounded-xl border border-border bg-card p-6 shadow-md transition-all duration-300 hover:translate-y-[-4px] hover:border-primary/30 hover:shadow-primary/5`}
+      >
+        <span className="text-sm font-semibold text-primary">{year}</span>
+        <h4 className="text-lg font-bold mt-1 text-foreground">{title}</h4>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+      </motion.div>
+    </div>
+  );
+}
 
 export default function AboutPage() {
   const { profile } = useGithub();
 
+  const techStack = [
+    { name: 'HTML5', icon: FaHtml5, color: 'text-orange-500' },
+    { name: 'CSS3', icon: FaCss3Alt, color: 'text-sky-500' },
+    { name: 'JavaScript', icon: FaJs, color: 'text-amber-400' },
+    { name: 'React.js', icon: FaReact, color: 'text-cyan-400' },
+    { name: 'Next.js', icon: SiNextdotjs, color: 'text-foreground' },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-sky-400' },
+    { name: 'Python', icon: FaPython, color: 'text-blue-500' },
+    { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-sky-600' },
+    { name: 'Supabase', icon: SiSupabase, color: 'text-emerald-400' },
+    { name: 'Node.js', icon: FaNodeJs, color: 'text-green-500' },
+    { name: 'SQL Databases', icon: FaDatabase, color: 'text-slate-400' },
+  ];
+
+  const timelineItems: TimelineItemProps[] = [
+    {
+      year: '🎓 1st Year',
+      title: 'Web Fundamentals',
+      desc: 'Started learning HTML & CSS, building basic static web pages.',
+      side: 'left',
+    },
+    {
+      year: '🎓 3rd Year',
+      title: 'Programming & Databases',
+      desc: 'Learned JavaScript, SQL, and PostgreSQL for robust databases.',
+      side: 'right',
+    },
+    {
+      year: '🎓 4th Year',
+      title: 'First Full Stack Work',
+      desc: 'Built first full stack project using HTML, CSS, JS, and backend APIs.',
+      side: 'left',
+    },
+    {
+      year: '💼 Internship',
+      title: 'Mehaboob Software Solutions',
+      desc: 'Joined as an intern and mastered production-level web development.',
+      side: 'right',
+    },
+    {
+      year: '🌳 React Era',
+      title: 'Vignan Trees',
+      desc: 'Learned React & built Vignan Trees project with dynamic state management.',
+      side: 'left',
+    },
+    {
+      year: '🌐 Next.js & SSR',
+      title: 'Sainivas Beach View',
+      desc: 'Developed Sainivas Beach View website with modern SSR/ISR.',
+      side: 'right',
+    },
+    {
+      year: '🪣 Supabase & Live Apps',
+      title: 'TR Bike Rentals',
+      desc: 'Used Supabase DB + Storage for building full-scale client products.',
+      side: 'left',
+    },
+    {
+      year: '💼 Chipthem',
+      title: 'Web Developer at Chipthem',
+      desc: 'Mastered Next.js core architecture and deployed products on cPanel hosting services, configuring nameservers, databases, and subdomains.',
+      side: 'right',
+    },
+    {
+      year: '🛍️ Shopify',
+      title: 'Shopify Store Design & Product Curation',
+      desc: 'Designed highly-converting Shopify store frontends, configuring product catalogs, tag mappings, custom collections, and category routing hierarchies.',
+      side: 'left',
+    },
+    {
+      year: '🔬 Sreshta Semicon',
+      title: 'Sreshta Semicon Technologies',
+      desc: 'Developed the official landing page and educational portal for Sreshta Semicon Technologies teaching organization.',
+      side: 'right',
+    },
+    {
+      year: '📄 IJITEST',
+      title: 'IJITEST Academic Journal Platform',
+      desc: 'Built a full-featured publication site with Next.js 16/React 19, integrating ILovePDF API branding, real-time live chat support, peer review dashboards, role-based security, MySQL with Drizzle ORM, NestJS + Fastify for fast file handling, and Hostinger cPanel configuration (crons, CDN, databases).',
+      side: 'left',
+    },
+    {
+      year: '🚀 Colourmoon (Current)',
+      title: 'Full Stack Engineer at Colourmoon Technologies',
+      desc: 'Currently working on a client-side enterprise Property Management & Inventory Management Module for Ramoji Film City.',
+      side: 'right',
+    },
+  ];
+
   return (
-    <section className="bg-dark text-light py-5">
-      <Container>
-        <Row className="align-items-center g-5">
-          {/* Profile Image */}
-          <Col md={5} className="text-center">
+    <main className="min-h-screen py-16 px-6 relative overflow-hidden">
+      {/* Background gradient decorative glow */}
+      <div className="absolute top-1/3 left-10 -z-10 h-72 w-72 rounded-full bg-primary/5 blur-[120px]" />
+      
+      <div className="mx-auto max-w-4xl">
+        {/* Intro Section */}
+        <div className="grid gap-8 md:grid-cols-12 md:items-center">
+          {/* Left: Avatar */}
+          <div className="md:col-span-4 flex justify-center">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="relative group h-48 w-48 overflow-hidden rounded-full border border-primary/20 bg-card p-1 shadow-xl"
             >
-              <div className="position-relative mx-auto" style={{ width: 200, height: 200 }}>
+              <div className="relative h-full w-full overflow-hidden rounded-full">
                 <Image
-                  src={profile?.avatar_url || '/profile.jpg'}
+                  src="/profile.png"
                   alt={profile?.name || 'Mohan Kumar Indala'}
                   fill
-                  sizes="200px"
+                  sizes="192px"
                   priority
-                  className="rounded-circle border border-3 border-light shadow-lg object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </motion.div>
-          </Col>
+          </div>
 
-          {/* About Text */}
-          <Col md={7}>
-            <motion.div
+          {/* Right: Text */}
+          <div className="md:col-span-8 space-y-4 text-left">
+            <motion.h2
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-3xl font-extrabold text-foreground"
+            >
+              About Me
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-lg text-muted-foreground leading-relaxed"
+            >
+              Hi, I&apos;m <span className="text-foreground font-semibold">Mohan Kumar Indala</span>, a passionate{' '}
+              <span className="text-foreground font-semibold">Full Stack Web Developer</span>. I love crafting modern web experiences that blend elegant design with solid logic and performance.
+            </motion.p>
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
+              className="text-sm text-muted-foreground leading-relaxed"
             >
-              <h2 className="fw-bold mb-3 text-primary">About Me</h2>
-              <p className="lead mb-4">
-                Hi, I&apos;m <strong>Mohan Kumar Indala</strong>, a passionate
-                <strong> Full Stack Web Developer</strong> skilled in
-                <strong> React, Next.js, FastAPI,</strong> and <strong>SQL</strong>.
-                I love crafting modern web experiences that blend elegant design
-                with solid logic and performance.
-              </p>
-              <p>
-                Currently, I’m working at <strong>Awezens</strong> and have built real-world projects such as{' '}
-                <a href="https://awezens.ct.ws" target="_blank" rel="noopener noreferrer" className="text-info text-decoration-none">
-                  Awezens Website
-                </a>,{' '}
-                <a href="https://sainivas.co.in/" target="_blank" rel="noopener noreferrer" className="text-info text-decoration-none">
-                  Sainivas Beach View
-                </a>, and{' '}
-                <a href="https://trbikes.sainivasbeachviewresthouse.workers.dev/" target="_blank" rel="noopener noreferrer" className="text-info text-decoration-none">
-                  TRBike Rentals
-                </a>.
-              </p>
-            </motion.div>
-          </Col>
-        </Row>
+              Currently, I’m working at <span className="text-foreground font-semibold">Awezens</span> and have built real-world projects such as{' '}
+              <a href="https://awezens.ct.ws" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors font-medium">
+                Awezens Website
+              </a>,{' '}
+              <a href="https://sainivas.co.in/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors font-medium">
+                Sainivas Beach View
+              </a>, and{' '}
+              <a href="https://trbikes.sainivasbeachviewresthouse.workers.dev/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors font-medium">
+                TRBike Rentals
+              </a>.
+            </motion.p>
+          </div>
+        </div>
 
-        {/* 🌿 Journey Tree Path */}
-        <Row className="mt-5">
-          <Col>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <h3 className="text-center text-primary mb-4 fw-bold">
-                My Web Development Journey 🌱
-              </h3>
+        {/* 🌿 Journey Timeline */}
+        <div className="mt-24">
+          <motion.h3
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-2xl font-bold text-center tracking-tight text-foreground mb-12"
+          >
+            My Web Development Journey 🌱
+          </motion.h3>
 
-              <div className="tree">
-                <div className="branch left">
-                  <div className="leaf">
-                    <h5>🎓 1st Year</h5>
-                    <p>Started learning <strong>HTML</strong> & <strong>CSS</strong>.</p>
-                  </div>
-                </div>
+          {/* Timeline Wrapper */}
+          <div className="relative mx-auto max-w-3xl">
+            {/* Central Line */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-linear-to-b from-primary via-primary/50 to-transparent" />
 
-                <div className="stem"></div>
-
-                <div className="branch right">
-                  <div className="leaf">
-                    <h5>🎓 3rd Year</h5>
-                    <p>Learned <strong>JavaScript</strong>, <strong>SQL</strong>, and <strong>PostgreSQL</strong>.</p>
-                  </div>
-                </div>
-
-                <div className="stem"></div>
-
-                <div className="branch left">
-                  <div className="leaf">
-                    <h5>🎓 4th Year</h5>
-                    <p>Built my first project using <strong>HTML, CSS, JS, and FastAPI</strong>.</p>
-                  </div>
-                </div>
-
-                <div className="stem"></div>
-
-                <div className="branch right">
-                  <div className="leaf">
-                    <h5>💼 Internship</h5>
-                    <p>Joined <strong>Mehaboob Software Solutions</strong> and mastered web fundamentals.</p>
-                  </div>
-                </div>
-
-                <div className="stem"></div>
-
-                <div className="branch left">
-                  <div className="leaf">
-                    <h5>🌳 React</h5>
-                    <p>Learned React & built <strong>Vignan Trees</strong> project.</p>
-                  </div>
-                </div>
-
-                <div className="stem"></div>
-
-                <div className="branch right">
-                  <div className="leaf">
-                    <h5>🌐 Next.js</h5>
-                    <p>Developed <strong>Sainivas Beach View</strong> website with modern SSR.</p>
-                  </div>
-                </div>
-
-                <div className="stem"></div>
-
-                <div className="branch left">
-                  <div className="leaf">
-                    <h5>🪣 Supabase</h5>
-                    <p>Used <strong>Supabase DB + Storage</strong> for <strong>TR Bike Rentals</strong>.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </Col>
-        </Row>
+            {/* Alternating items */}
+            {timelineItems.map((item, index) => (
+              <TimelineItem key={index} {...item} />
+            ))}
+          </div>
+        </div>
 
         {/* ⚙️ Tech Stack */}
-        <Row className="mt-5 text-center">
-          <Col>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-            >
-              <h3 className="text-primary fw-bold mb-4">My Tech Stack ⚙️</h3>
-              <div className="d-flex flex-wrap justify-content-center gap-4 fs-1">
-                <FaHtml5 className="text-danger" title="HTML5" />
-                <FaCss3Alt className="text-info" title="CSS3" />
-                <FaJs className="text-warning" title="JavaScript" />
-                <FaReact className="text-info" title="React.js" />
-                <SiNextdotjs className="text-light" title="Next.js" />
-                <SiFastapi className="text-success" title="FastAPI" />
-                <FaPython className="text-primary" title="Python" />
-                <SiPostgresql className="text-primary" title="PostgreSQL" />
-                <SiSupabase className="text-success" title="Supabase" />
-                <FaNodeJs className="text-success" title="Node.js" />
-                <FaDatabase className="text-secondary" title="SQL Databases" />
-              </div>
-            </motion.div>
-          </Col>
-        </Row>
-      </Container>
+        <div className="mt-24 border-t border-border/40 pt-16">
+          <motion.h3
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-2xl font-bold text-center tracking-tight text-foreground mb-10"
+          >
+            My Tech Stack ⚙️
+          </motion.h3>
 
-      {/* 🌿 Custom Styles */}
-      <style jsx>{`
-        .tree {
-          position: relative;
-          max-width: 700px;
-          margin: 0 auto;
-          padding: 2rem 0;
-        }
-        .stem {
-          width: 4px;
-          height: 60px;
-          background: #0d6efd;
-          margin: 0 auto;
-          border-radius: 2px;
-        }
-        .branch {
-          display: flex;
-          align-items: center;
-          margin-bottom: 2rem;
-          position: relative;
-        }
-        .branch.left {
-          justify-content: flex-start;
-        }
-        .branch.right {
-          justify-content: flex-end;
-        }
-        .leaf {
-          background: rgba(255, 255, 255, 0.08);
-          padding: 1rem 1.2rem;
-          border-radius: 12px;
-          width: 85%;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-          transition: 0.3s ease;
-        }
-        .leaf:hover {
-          transform: translateY(-4px);
-          background: rgba(13, 110, 253, 0.1);
-          box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
-        }
-        .leaf h5 {
-          color: #0d6efd;
-          font-weight: 600;
-        }
-        @media (max-width: 768px) {
-          .branch {
-            justify-content: center !important;
-          }
-          .leaf {
-            width: 95%;
-          }
-        }
-      `}</style>
-    </section>
+          <div className="flex flex-wrap justify-center gap-6">
+            {techStack.map((tech) => (
+              <motion.div
+                key={tech.name}
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="flex items-center gap-3 rounded-xl border border-border bg-card px-5 py-3 shadow-sm hover:border-primary/20 hover:bg-primary/5 transition-all duration-300"
+              >
+                <tech.icon className={`h-6 w-6 ${tech.color}`} />
+                <span className="text-sm font-semibold text-foreground">{tech.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }

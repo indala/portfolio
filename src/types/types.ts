@@ -19,3 +19,14 @@ export interface Repository {
   fork: boolean;
   pushed_at: string;
 }
+
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  liveUrl: string;
+  githubUrl?: string;
+  techStack: string[];
+  imageUrl?: string;
+}
+

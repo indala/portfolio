@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import { ReactNode } from 'react';
@@ -12,13 +11,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="dark">
+      <body className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary">
         <Navbar />
         <GithubProvider>
           {children}
         </GithubProvider>
-
       </body>
     </html>
   );

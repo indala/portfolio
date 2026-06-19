@@ -1,21 +1,28 @@
+'use client';
+
 import Hero from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import ContactSection from '@/components/ContactSection';
-import { Container,Row } from 'react-bootstrap';
+import AboutPage from '@/app/about/about';
+import ProjectsPage from '@/app/projects/projects';
+import ContactPage from '@/app/contact/contact';
 
 export default function HomePage() {
   return (
-    <>
-      <Hero />
-      <AboutSection />
-      <ProjectsSection />
-      <Container>
-        <Row className="my-5 mx-0 mx-sm-5 px-0 px-md-5 ">
-          <h1 className='fw-bold mb-5'>Contact Me 📞</h1>
-      <ContactSection />
-        </Row>
-      </Container>
-    </>
+    <div className="grid-pattern bg-background text-foreground min-h-screen">
+      <div id="home">
+        <Hero />
+      </div>
+      
+      <div id="about" className="border-t border-border/40 scroll-mt-16">
+        <AboutPage />
+      </div>
+
+      <div id="projects" className="border-t border-border/40 scroll-mt-16">
+        <ProjectsPage />
+      </div>
+
+      <div id="contact" className="border-t border-border/40 scroll-mt-16">
+        <ContactPage />
+      </div>
+    </div>
   );
 }

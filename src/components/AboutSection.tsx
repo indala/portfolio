@@ -1,56 +1,61 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Container, Row, Col } from 'react-bootstrap';
-
- import { FaLaptopCode } from 'react-icons/fa';
+import { Laptop } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-5 border-top border-secondary bg-dark text-light">
-      <Container>
-        <Row className="align-items-center g-4">
-          <Col md={5} className="text-center">
+    <section id="about" className="relative border-t border-border/40 py-20 px-6 bg-card/30">
+      <div className="mx-auto max-w-5xl">
+        <div className="grid gap-12 md:grid-cols-12 md:items-center">
+          {/* Left Column - Graphic/Icon */}
+          <div className="md:col-span-5 flex justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              className="relative"
             >
-              <div
-                className="d-flex justify-content-center align-items-center mx-auto bg-secondary bg-opacity-25 rounded-circle border border-3 border-light shadow-lg"
-                style={{
-                  width: 200,
-                  height: 200,
-                }}
-              >
-                <FaLaptopCode size={90} className="text-light" />
+              <div className="absolute inset-0 rounded-full bg-primary/10 blur-2xl" />
+              <div className="relative flex h-48 w-48 items-center justify-center rounded-full border border-primary/20 bg-background/50 text-primary shadow-2xl backdrop-blur-md transition-all hover:scale-105 hover:border-primary/40">
+                <Laptop className="h-20 w-20 stroke-[1.5]" />
               </div>
             </motion.div>
-          </Col>
+          </div>
 
-          <Col md={7}>
+          {/* Right Column - Text */}
+          <div className="md:col-span-7">
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              className="space-y-6 text-left"
             >
-              <h2 className="mb-3">About Me</h2>
-              <p className="lead">
-                I&apos;m <strong>Mohan Kumar Indala</strong>, a passionate Full Stack Developer
-                with experience in building dynamic, responsive web applications using
-                <strong> React, Next.js, Express, and SQL</strong>.
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                About Me
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                I&apos;m <span className="text-foreground font-semibold">Mohan Kumar Indala</span>, a dedicated Full Stack Developer with experience in building dynamic, responsive web applications using{' '}
+                <span className="text-foreground font-semibold">React, Next.js, Express, and SQL</span>.
               </p>
-              <p>
-                I enjoy solving real-world problems, creating efficient solutions, and
-                constantly learning new technologies. Currently, I&apos;m working at Awezens and
-                graduating in April 2025.
+              <p className="text-muted-foreground leading-relaxed">
+                I enjoy solving real-world problems, creating efficient solutions, and constantly learning new technologies. Currently, I&apos;m working at Awezens and graduating in April 2025.
               </p>
+              <div>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:bg-accent"
+                >
+                  Read My Journey
+                </Link>
+              </div>
             </motion.div>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
