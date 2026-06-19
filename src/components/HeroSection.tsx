@@ -76,6 +76,7 @@ export default function Hero() {
                   fill
                   sizes="160px"
                   priority
+                  loading="eager"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
