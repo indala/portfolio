@@ -42,7 +42,7 @@ export default function AboutSection() {
                 <span className="text-foreground font-semibold">React, Next.js, Express, and SQL</span>.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                I enjoy solving real-world problems, creating efficient solutions, and constantly learning new technologies. Currently, I&apos;m working at Awezens and graduating in April 2025.
+                I enjoy solving real-world problems, creating efficient solutions, and constantly learning new technologies. Currently, I&apos;m working at Colourmoon Technologies, developing an enterprise Property Management and Inventory system for Ramoji Film City.
               </p>
               <div>
                 <Link

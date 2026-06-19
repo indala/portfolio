@@ -188,15 +188,15 @@ export default function AboutPage() {
               transition={{ delay: 0.3 }}
               className="text-sm text-muted-foreground leading-relaxed"
             >
-              Currently, I’m working at <span className="text-foreground font-semibold">Awezens</span> and have built real-world projects such as{' '}
-              <a href="https://awezens.ct.ws" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors font-medium">
-                Awezens Website
+              Currently, I’m working as a Full Stack Engineer at <span className="text-foreground font-semibold">Colourmoon Technologies</span>, developing an enterprise Property Management (Inventory Management) module for the client company <span className="text-foreground font-semibold">Ramoji Film City</span>. I have designed and built production-level web applications including{' '}
+              <a href="https://ijitest.org" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors font-medium">
+                IJITEST
               </a>,{' '}
-              <a href="https://sainivas.co.in/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors font-medium">
-                Sainivas Beach View
+              <a href="https://sreshtasemicon.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors font-medium">
+                Sreshta Semicon
               </a>, and{' '}
-              <a href="https://trbikes.sainivasbeachviewresthouse.workers.dev/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors font-medium">
-                TRBike Rentals
+              <a href="https://sainivas.co.in" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors font-medium">
+                Sainivas Beach View
               </a>.
             </motion.p>
           </div>
