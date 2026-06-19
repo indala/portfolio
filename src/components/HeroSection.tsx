@@ -3,12 +3,10 @@
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useGithub } from '@/context/GithubContext';
 import { ArrowRight } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 export default function Hero() {
-  const { profile } = useGithub();
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },

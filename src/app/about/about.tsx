@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useGithub } from '@/context/GithubContext';
 import {
   FaHtml5,
   FaCss3Alt,
@@ -46,7 +45,6 @@ function TimelineItem({ year, title, desc, side }: TimelineItemProps) {
 }
 
 export default function AboutPage() {
-  const { profile } = useGithub();
 
   const techStack = [
     { name: 'HTML5', icon: FaHtml5, color: 'text-orange-500' },
@@ -156,7 +154,7 @@ export default function AboutPage() {
               <div className="relative h-full w-full overflow-hidden rounded-full">
                 <Image
                   src="/profile.png"
-                  alt={profile?.name || 'Mohan Kumar Indala'}
+                  alt="Mohan Kumar Indala"
                   fill
                   sizes="192px"
                   priority

@@ -1,8 +1,6 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import { ReactNode } from 'react';
-import { GithubProvider } from '@/context/GithubContext';
-
 
 export const metadata = {
   title: 'Mohan Kumar Indala | Portfolio',
@@ -14,9 +12,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className="dark">
       <body className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary">
         <Navbar />
-        <GithubProvider>
-          {children}
-        </GithubProvider>
+        {children}
       </body>
     </html>
   );
