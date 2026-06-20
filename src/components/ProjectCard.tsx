@@ -54,29 +54,19 @@ export default function ProjectCard({
 
       <div className="space-y-4 relative z-10">
         {/* Live Site Preview Thumbnail (Scaled Iframe or Screenshot Image) */}
-        <div className="relative w-full h-40 rounded-lg overflow-hidden border border-border bg-zinc-900 shadow-inner">
-          {imageUrl ? (
-            <Image
-              src={imageUrl}
-              alt={title}
-              fill
-              sizes="380px"
-              className="object-fit"
-            />
-          ) : (
-            <>
-              <iframe
-                src={liveUrl}
-                title={title}
-                scrolling="no"
-                className="absolute top-0 left-0 w-[400%] h-[400%] border-none pointer-events-none select-none scale-[0.25] origin-top-left"
-                loading="lazy"
-                sandbox="allow-same-origin allow-scripts"
-              />
-              {/* Overlay to catch hover clicks and keep viewport scrolling fluid */}
-              <div className="absolute inset-0 bg-zinc-950/10 group-hover:bg-zinc-950/0 transition-colors duration-300" />
-            </>
-          )}
+        <div className="relative w-full h-40 rounded-lg overflow-hidden border border-border bg-zinc-900 shadow-inner cursor-pointer" onClick={() => window.open(liveUrl, "_blank")}>
+          <iframe
+            src={liveUrl}
+            title={title}
+            scrolling='no'
+            className="absolute top-0 left-0 w-[400%] h-[400%] border-none pointer-events-none select-none scale-[0.25] origin-top-left"
+            loading="lazy"
+            sandbox="allow-same-origin allow-scripts"
+          />
+          {/* Overlay to catch hover clicks and keep viewport scrolling fluid */}
+          <div className="absolute inset-0 bg-zinc-950/10 group-hover:bg-zinc-950/0 transition-colors duration-300" />
+
+
         </div>
 
         <div className="space-y-2">

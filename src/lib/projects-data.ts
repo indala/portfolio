@@ -7,7 +7,6 @@ export const featuredProjects: Project[] = [
     description: 'A modern academic journal publishing and review management platform designed for quick manuscript submission, peer evaluation, and archive curation.',
     liveUrl: 'https://ijitest.org',
     techStack: ['React', 'Next.js', 'Express', 'MySql', 'Nest.js', 'Tailwind CSS'],
-    imageUrl: '/ijitest.png',
   },
   {
     id: 'sreshta-semicon',
