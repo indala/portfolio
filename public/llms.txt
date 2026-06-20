@@ -1,0 +1,14 @@
+# Mohan Kumar Indala | Portfolio
+> Full Stack Developer specializing in React, Next.js, Express, and SQL. Building modern web applications with clean architecture and great UX.
+
+## Pages
+- [Home](https://indala.vercel.app/): Portfolio homepage with hero and featured sections
+- [About](https://indala.vercel.app/about): Background, skills, and journey as a developer
+- [Projects](https://indala.vercel.app/projects): Showcase of web applications and tools built
+- [Contact](https://indala.vercel.app/contact): Contact form and social links
+
+## Tech Stack
+- Frontend: React, Next.js, TypeScript, Tailwind CSS, Framer Motion
+- Backend: Node.js, Express, Nest.js
+- Database: MySQL, PostgreSQL, Supabase
+- Tools: Git, Socket.io, Leaflet Maps
