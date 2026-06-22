@@ -6,7 +6,7 @@ export const metadata = {
   title: 'Mohan Kumar Indala | Portfolio',
   description: 'Full Stack Developer | React, Next.js, Express, SQL',
   verification: {
-    google: '78ZqN4FfGLxnp8Opq-U0szIVh0Ep7oBxNJWskJYu7-Y',
+    google: '5-rmrgq21MlXYvy3d095pCWHjO9NUNXUzH5-06-6l2k',
   },
   alternates: {
     canonical: 'https://indala.vercel.app',
