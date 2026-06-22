@@ -27,7 +27,7 @@ export const featuredProjects: Project[] = [
     title: 'Vignan Trees',
     description: 'An interactive ecosystem tracking platform built to index, geolocate, and detail diverse tree species across campus gardens.',
     liveUrl: 'https://vignantrees.vercel.app',
-    techStack: ['React', 'Tailwind CSS', 'Leaflet Maps', 'Express'],
+    techStack: ['React', 'Bootstrap', 'Next.js'],
   },
   {
     id: 'bingo',
