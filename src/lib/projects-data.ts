@@ -37,6 +37,13 @@ export const featuredProjects: Project[] = [
     techStack: ['Next.js', 'Tailwind CSS', 'Socket.io', 'Node.js'],
   },
   {
+    id: 'escape-from-bear',
+    title: 'Escape From Bear',
+    description: 'A survival maze game where players navigate dark environments while avoiding aggressive bear AI, using a flashlight strategically and collecting items to reach the exit.',
+    liveUrl: 'https://escape-from-bear.vercel.app',
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+  },
+  {
     id: 'yours-task',
     title: 'Yours Task',
     description: 'A responsive visual dashboard providing drag-and-drop task lanes, subtask milestones, and local storage state persistence.',
